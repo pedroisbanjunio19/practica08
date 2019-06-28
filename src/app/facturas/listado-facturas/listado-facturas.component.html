@@ -1,0 +1,21 @@
+<div class="card xl">
+  <div class="titles-row">
+    <h1>Listado Facturas</h1>
+    <button routerLink="/crear-factura">Añadir nueva</button>
+  </div>
+  <hr>
+  <table>
+    <tr>
+      <th>Cliente</th>
+      <th>Fecha</th>
+      <th>Base Imponible</th>
+    </tr>
+    <tr *ngFor="let factura of facturas">
+      <td>{{factura.razonSocial}}</td>
+      <td>{{factura.fecha | date:'dd/MM/yyyy'}}</td>
+      <td>{{factura.base}}</td>
+      <td routerLink="/editar-factura/{{factura._id}}">Editar</td>
+      <td (click)="eliminarFra(factura._id)">Eliminar</td>
+    </tr>
+  </table>
+</div>
